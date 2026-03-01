@@ -1,75 +1,94 @@
-# Neural Collaborative Filtering (NCF) From Scratch 🧠💻
+Neural Collaborative Filtering (NCF) Movie Recommender
 
-[![Python Version](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
-[![Build](https://img.shields.io/badge/build-passing-brightgreen)]()
+This project implements a state-of-the-art movie recommendation engine based on the Neural Collaborative Filtering (NCF) framework. By moving beyond the linear limitations of traditional Matrix Factorization (MF), this system utilizes deep neural networks to learn the complex interaction function between users and items.
 
-## Table of Contents
+🚀 Overview
+The system is built to provide personalized movie recommendations using implicit feedback (interaction data) from the MovieLens 1M dataset. It is designed as a production-ready web service using Flask and Docker, following Object-Oriented Programming (OOP) patterns for machine learning.
+Key Features
 
-1. [Project Overview](#project-overview)
-2. [Motivation](#motivation)
-3. [Features](#features)
-4. [Project Structure](#project-structure)
-5. [Installation](#installation)
-6. [Usage](#usage)
-7. [Datasets](#datasets)
-8. [Models & Approach](#models--approach)
-9. [Results](#results)
-10. [Future Work](#future-work)
-11. [License](#license)
+NeuMF (Neural Matrix Factorization): A fused model architecture that combines the linearity of GMF (Generalized Matrix Factorization) and the non-linearity of a Multi-Layer Perceptron (MLP).
+
+Implicit Feedback Engine: Transforms explicit ratings into binary signals (1 for interaction, 0 for no interaction) to model user interest.
+Deep Latent Modeling: Uses Embedding Layers to project users and movies into a shared dense latent space.
+
+Advanced Optimization: Implements Log Loss (Binary Cross-Entropy) with Negative Sampling to effectively learn from sparse data.
 
 ---
 
-## Project Overview
+🏗 Architecture
+The NCF framework utilizes a multi-layer architecture:
 
-This project implements a **Neural Collaborative Filtering (NCF)** system from scratch using **NumPy** and **PyTorch** to recommend items to users based on historical interactions. The project emphasizes:
+Input Layer: Accepts binarized sparse vectors via one-hot encoding of User and Movie IDs.
 
-- Understanding NCF from first principles
-- Building models without relying solely on libraries
-- Integration of data preprocessing, model training, evaluation, and deployment
-- Modular architecture suitable for production and research
+Embedding Layer: Projects sparse inputs into dense latent vectors.
+Neural CF Layers:
 
-The backend API allows serving recommendations via **FastAPI**, enabling scalable integration with other platforms.
+GMF Path: Performs an element-wise product to capture linear patterns.
 
----
+MLP Path: Concatenates vectors and passes them through multiple hidden layers
+with ReLU activation to capture non-linearities.
 
-## Motivation
+NeuMF Layer: Concatenates the outputs of GMF and MLP to leverage both model strengths.
 
-Recommender systems are integral to modern digital platforms (e-commerce, streaming, social media).  
-Most existing solutions rely on pre-built libraries; this project:
-
-- Teaches **deep learning fundamentals from scratch**
-- Bridges **academic research and real-world applications**
-- Demonstrates **end-to-end system design** from raw data to deployed API
+Output Layer: A Sigmoid activation function that predicts a score between 0 and 1 representing the likelihood of user interest.
 
 ---
 
-## Features
+📊 Dataset
+The system uses the MovieLens 1M dataset.
 
-- **Data Preprocessing**: Handling raw user-item interaction datasets
-- **NCF Model**: Implemented both **MLP-based** and **generalized matrix factorization**
-- **Training From Scratch**: Using only NumPy for initial experiments
-- **Advanced Models**: Transition to PyTorch for scalable training
-- **Evaluation**: Hit Ratio (HR), NDCG, MSE, MAE
-- **RAG/GenAI Integration**: Generate recommendations with contextual explanations (optional extension)
-- **API Deployment**: Serve predictions with FastAPI
-- **Dockerized Environment**: Reproducible setup for development and deployment
+Statistics: 1,000,209 interactions across 6,040 users and 3,706 movies.
+
+Processing: Since the system focuses on implicit signals, all ratings are binarized.
+
+Storage: Following project requirements, the system processes raw .dat or .csv files directly without a database.
 
 ---
 
-## Project Structure
+🛠 Tech Stack
+Deep Learning: Keras/TensorFlow (For Comparing Scratch with Library Model).
 
-```text
-NCF-Recommender-From-Scratch/
-│
-├── data/               # Raw and processed datasets
-├── notebooks/          # EDA & experimentation notebooks
-├── src/                # Source code: models, training, utils, API
-├── experiments/        # Saved model checkpoints and logs
-├── reports/            # Figures, thesis drafts, presentations
-├── docker/             # Docker setup
-├── scripts/            # Quick run scripts
-├── tests/              # Unit tests
-├── requirements.txt    # Python dependencies
-└── README.md
-```
+Web API: Flask.
+
+ML Ops & OOP: Pydantic for data validation and schema definition.
+
+Containerization: Docker.
+
+Data Science: NumPy, Pandas, Scipy.
+
+---
+
+💻 Project Structure (OOP Design)
+
+The project is organized into modular classes to satisfy ML OOPs requirements:
+
+DataLoader: Handles MovieLens file parsing and negative sampling.
+
+NCFModel: Base class for neural architectures.
+
+NeuMFTrainer: Manages stochastic gradient descent (SGD) and Adam optimization.
+
+RecommenderAPI: Flask application serving predictions.
+
+---
+
+🚦 Getting Started
+
+Prerequisites
+Docker installed on your machine.
+Installation & Deployment
+Clone the repository:
+Build the Docker Image:
+Run the Container:
+
+---
+
+📈 Evaluation Metrics
+The model performance is evaluated using the Leave-one-out protocol:
+
+Hit Ratio (HR@10): Measures if the held-out movie is in the Top-10 recommended list.
+
+NDCG@10: Accounts for the position of the recommended movie in the list.
+Performance
+
+NeuMF consistently outperforms traditional models like BPR and eALS, showing significant improvements by fusing linear and non-linear pathways.

@@ -1,0 +1,22 @@
+# Core Framework
+keras>=2.0.2           # Implementation framework for NCF models [1]
+tensorflow>=1.2.1      # Primary backend for Keras used in 2017 [1]
+
+# Data Processing & Math (Required for NCF operations)
+numpy>=1.12.1          # For element-wise products in GMF and latent vectors [6]
+pandas>=0.20.1         # For loading and binarizing the MovieLens 1M dataset [2]
+scipy>=0.19.0          # For handling binarized sparse input vectors [4]
+
+# Evaluation (Required for metrics mentioned)
+scikit-learn>=0.18.1   # For calculating Hit Ratio (HR) and NDCG [7]
+
+
+# --- Web Framework & API ---
+flask>=2.3.0            # Web framework for the recommendation service
+gunicorn>=20.1.0        # Production-grade WSGI server for Docker
+pydantic>=2.0.0         # For ML OOPs: Data validation and API schemas
+
+# --- MLOps & Utilities ---
+joblib>=1.2.0           # For serializing/loading the trained NCF model
+python-dotenv>=1.0.0    # For managing environment variables in Docker
+requests>=2.31.0        # For internal API communication
