@@ -1,9 +1,8 @@
 FROM node:20-alpine AS deps
 WORKDIR /app
+COPY .npmrc* ./
 COPY package.json package-lock.json* ./
-# RUN npm ci --only=production=false
-RUN npm ci
-
+RUN npm ci --network-timeout=120000
 # Builder stage
 FROM node:20-alpine AS builder
 WORKDIR /app
