@@ -1,0 +1,31 @@
+# --- Indian Currency Dataset Configuration ---
+# Path to the root directory of the processed dataset
+path: ../dataset/processed
+
+# Training and Validation subsets (relative to 'path')
+train: train/images
+val: val/images
+test: test/images
+
+# Number of Classes
+nc: 11
+
+# Class Names
+# The order must strictly match the label indices in the .txt files
+names:
+  0: 10_Old
+  1: 10_New
+  2: 20_Old
+  3: 20_New
+  4: 50_Old
+  5: 50_New
+  6: 100_Old
+  7: 100_New
+  8: 200
+  9: 500
+  10: 2000
+
+# --- Metadata ---
+description: "Indian Banknotes Detection Dataset for YOLOv8/v10"
+author: "Senior ML Architect"
+license: "MIT"

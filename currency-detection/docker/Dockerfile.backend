@@ -1,0 +1,70 @@
+# =============================================================================
+# Backend Dockerfile — AI Currency Detection System v2.0
+# Multi-stage build | Cross-platform: linux/amd64 + linux/arm64
+# =============================================================================
+
+# ── Stage 1: Builder ─────────────────────────────────────────────────────────
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements/backend.txt .
+RUN pip install --no-cache-dir --user -r backend.txt
+
+
+# ── Stage 2: Runtime ──────────────────────────────────────────────────────────
+FROM python:3.11-slim AS runtime
+
+LABEL maintainer="AI Currency Detection System v2.0"
+LABEL description="FastAPI backend with YOLOv8 currency detection"
+
+# System dependencies for OpenCV and audio
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    libglib2.0-0 \
+    libgomp1 \
+    curl \
+    espeak \
+    espeak-data \
+    libespeak1 \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy installed packages from builder
+COPY --from=builder /root/.local /root/.local
+ENV PATH=/root/.local/bin:$PATH
+
+WORKDIR /app
+
+# Copy application code
+COPY backend/ ./backend/
+COPY models/ ./models/
+COPY configs/ ./configs/
+
+# Create output directories
+RUN mkdir -p outputs/logs outputs/reports
+
+# Environment defaults
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV DEVICE=cpu
+ENV LOG_LEVEL=INFO
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8000/api/v1/ping || exit 1
+
+EXPOSE 8000
+
+CMD ["uvicorn", "backend.api.main:app", \
+     "--host", "0.0.0.0", \
+     "--port", "8000", \
+     "--workers", "1", \
+     "--log-level", "info"]

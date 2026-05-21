@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1778949594542,
+    "timestamp": "2026-05-16T16:39:54.542286",
+    "source": "image_upload",
+    "total_amount": 200,
+    "total_count": 1,
+    "summary": {
+      "200": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949606128,
+    "timestamp": "2026-05-16T16:40:06.128445",
+    "source": "image_upload",
+    "total_amount": 100,
+    "total_count": 1,
+    "summary": {
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949622399,
+    "timestamp": "2026-05-16T16:40:22.399718",
+    "source": "batch_upload",
+    "total_amount": 300,
+    "total_count": 2,
+    "summary": {
+      "200": 1,
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949648529,
+    "timestamp": "2026-05-16T16:40:48.529745",
+    "source": "image_upload",
+    "total_amount": 200,
+    "total_count": 1,
+    "summary": {
+      "200": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949659232,
+    "timestamp": "2026-05-16T16:40:59.232821",
+    "source": "image_upload",
+    "total_amount": 700,
+    "total_count": 2,
+    "summary": {
+      "200": 1,
+      "500": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949691966,
+    "timestamp": "2026-05-16T16:41:31.966314",
+    "source": "image_upload",
+    "total_amount": 100,
+    "total_count": 1,
+    "summary": {
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949701109,
+    "timestamp": "2026-05-16T16:41:41.109841",
+    "source": "image_upload",
+    "total_amount": 100,
+    "total_count": 1,
+    "summary": {
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778949784059,
+    "timestamp": "2026-05-16T16:43:04.059497",
+    "source": "image_upload",
+    "total_amount": 50,
+    "total_count": 1,
+    "summary": {
+      "50_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995815261,
+    "timestamp": "2026-05-17T05:30:15.261678",
+    "source": "image_upload",
+    "total_amount": 200,
+    "total_count": 1,
+    "summary": {
+      "200": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995833290,
+    "timestamp": "2026-05-17T05:30:33.290131",
+    "source": "image_upload",
+    "total_amount": 100,
+    "total_count": 1,
+    "summary": {
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995855403,
+    "timestamp": "2026-05-17T05:30:55.403212",
+    "source": "image_upload",
+    "total_amount": 100,
+    "total_count": 1,
+    "summary": {
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995876943,
+    "timestamp": "2026-05-17T05:31:16.943607",
+    "source": "batch_upload",
+    "total_amount": 400,
+    "total_count": 3,
+    "summary": {
+      "200": 1,
+      "100_Old": 2
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995905114,
+    "timestamp": "2026-05-17T05:31:45.114525",
+    "source": "batch_upload",
+    "total_amount": 300,
+    "total_count": 2,
+    "summary": {
+      "200": 1,
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995929703,
+    "timestamp": "2026-05-17T05:32:09.703432",
+    "source": "image_upload",
+    "total_amount": 10,
+    "total_count": 1,
+    "summary": {
+      "10_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995945978,
+    "timestamp": "2026-05-17T05:32:25.978343",
+    "source": "image_upload",
+    "total_amount": 100,
+    "total_count": 1,
+    "summary": {
+      "100_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995959170,
+    "timestamp": "2026-05-17T05:32:39.170498",
+    "source": "image_upload",
+    "total_amount": 50,
+    "total_count": 1,
+    "summary": {
+      "50_Old": 1
+    },
+    "currency": "INR"
+  },
+  {
+    "id": 1778995972950,
+    "timestamp": "2026-05-17T05:32:52.950962",
+    "source": "image_upload",
+    "total_amount": 150,
+    "total_count": 2,
+    "summary": {
+      "100_Old": 1,
+      "50_Old": 1
+    },
+    "currency": "INR"
+  }
+]

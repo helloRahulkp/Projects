@@ -1,0 +1,49 @@
+# =============================================================================
+# AI Currency Detection System v2.0 — Backend Requirements
+# Python 3.10 / 3.11 | Cross-platform: Windows x86_64, macOS ARM64, Linux
+# Install: pip install -r requirements/backend.txt
+# =============================================================================
+
+# ── Deep Learning & Vision ──────────────────────────────────────────────────
+torch>=2.1.0
+torchvision>=0.16.0
+
+# YOLOv8
+ultralytics>=8.2.0
+
+# OpenCV — headless for server-side processing (no GUI required)
+opencv-python-headless>=4.8.0
+
+# ── FastAPI Backend ─────────────────────────────────────────────────────────
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.9
+
+# ── Pydantic ────────────────────────────────────────────────────────────────
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+
+# ── HTTP / Async ─────────────────────────────────────────────────────────────
+httpx>=0.27.0
+aiofiles>=23.2.1
+requests>=2.31.0
+
+# ── Data & Utils ─────────────────────────────────────────────────────────────
+numpy>=1.24.0
+Pillow>=10.0.0
+pandas>=2.1.0
+PyYAML>=6.0.1
+
+# ── Text-to-Speech ───────────────────────────────────────────────────────────
+gTTS>=2.5.0
+pyttsx3>=2.90
+
+# ── Logging & Monitoring ─────────────────────────────────────────────────────
+loguru>=0.7.2
+psutil>=5.9.5
+python-dotenv>=1.0.0
+
+# ── Testing ──────────────────────────────────────────────────────────────────
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0
